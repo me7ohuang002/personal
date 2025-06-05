@@ -5,8 +5,429 @@
     "version": "1.0.0",
     "x-ext-example": "这里是示例 OAS info 的扩展"
   },
-  "tags": [],
-  "paths": {},
+  "tags": [
+    {
+      "name": "宠物"
+    }
+  ],
+  "paths": {
+    "/pet/{petId}": {
+      "get": {
+        "summary": "查询宠物详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "宠物"
+        ],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "宠物 ID",
+            "required": true,
+            "type": "string",
+            "x-example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "code": 0,
+                "data": {
+                  "name": "Hello Kity",
+                  "photoUrls": [
+                    "http://dummyimage.com/400x400"
+                  ],
+                  "id": 3,
+                  "category": {
+                    "id": 71,
+                    "name": "Cat"
+                  },
+                  "tags": [
+                    {
+                      "id": 22,
+                      "name": "Cat"
+                    }
+                  ],
+                  "status": "sold"
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 0,
+                  "description": "状态码"
+                },
+                "data": {
+                  "$ref": "#/definitions/Pet",
+                  "description": "宠物信息"
+                }
+              },
+              "required": [
+                "code",
+                "data"
+              ]
+            }
+          },
+          "400": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          },
+          "404": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "summary": "删除宠物信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "宠物"
+        ],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "Pet id to delete",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "code": 0
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 0
+                }
+              },
+              "required": [
+                "code"
+              ]
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/pet": {
+      "post": {
+        "summary": "新建宠物信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "宠物"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "宠物名"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "宠物销售状态"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "code": 0,
+                "data": {
+                  "name": "Hello Kity",
+                  "photoUrls": [
+                    "http://dummyimage.com/400x400"
+                  ],
+                  "id": 3,
+                  "category": {
+                    "id": 71,
+                    "name": "Cat"
+                  },
+                  "tags": [
+                    {
+                      "id": 22,
+                      "name": "Cat"
+                    }
+                  ],
+                  "status": "sold"
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 0
+                },
+                "data": {
+                  "$ref": "#/definitions/Pet",
+                  "description": "宠物信息"
+                }
+              },
+              "required": [
+                "code",
+                "data"
+              ]
+            }
+          }
+        },
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "summary": "修改宠物信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "宠物"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "code": 0,
+                "data": {
+                  "name": "Hello Kity",
+                  "photoUrls": [
+                    "http://dummyimage.com/400x400"
+                  ],
+                  "id": 3,
+                  "category": {
+                    "id": 71,
+                    "name": "Cat"
+                  },
+                  "tags": [
+                    {
+                      "id": 22,
+                      "name": "Cat"
+                    }
+                  ],
+                  "status": "sold"
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "data": {
+                  "$ref": "#/definitions/Pet",
+                  "description": "宠物信息"
+                }
+              },
+              "required": [
+                "code",
+                "data"
+              ]
+            }
+          },
+          "404": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "405": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/pet/findByStatus": {
+      "get": {
+        "summary": "根据状态查找宠物列表 Copy",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "宠物"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "code": 0,
+                "data": [
+                  {
+                    "name": "Hello Kity",
+                    "photoUrls": [
+                      "http://dummyimage.com/400x400"
+                    ],
+                    "id": 3,
+                    "category": {
+                      "id": 71,
+                      "name": "Cat"
+                    },
+                    "tags": [
+                      {
+                        "id": 22,
+                        "name": "Cat"
+                      }
+                    ],
+                    "status": "sold"
+                  },
+                  {
+                    "name": "White Dog",
+                    "photoUrls": [
+                      "http://dummyimage.com/400x400"
+                    ],
+                    "id": 3,
+                    "category": {
+                      "id": 71,
+                      "name": "Dog"
+                    },
+                    "tags": [
+                      {
+                        "id": 22,
+                        "name": "Dog"
+                      }
+                    ],
+                    "status": "sold"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet",
+                "description": "宠物信息"
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "code"
+              ]
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
   "security": [],
   "x-ext-example": "这里是示例 OAS 扩展",
   "swagger": "2.0",
