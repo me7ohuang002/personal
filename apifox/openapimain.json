@@ -230,8 +230,7 @@
                       "maximum": 0
                     },
                     "data": {
-                      "$ref": "#/components/schemas/Pet",
-                      "description": "宠物信息"
+                      "$ref": "#/components/schemas/Pet"
                     }
                   },
                   "required": [
@@ -296,8 +295,7 @@
                       "type": "integer"
                     },
                     "data": {
-                      "$ref": "#/components/schemas/Pet",
-                      "description": "宠物信息"
+                      "$ref": "#/components/schemas/Pet"
                     }
                   },
                   "required": [
@@ -384,8 +382,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Pet",
-                    "description": "宠物信息"
+                    "$ref": "#/components/schemas/Pet"
                   }
                 },
                 "example": {
