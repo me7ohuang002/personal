@@ -230,8 +230,7 @@
                   "maximum": 0
                 },
                 "data": {
-                  "$ref": "#/definitions/Pet",
-                  "description": "宠物信息"
+                  "$ref": "#/definitions/Pet"
                 }
               },
               "required": [
@@ -299,8 +298,7 @@
                   "type": "integer"
                 },
                 "data": {
-                  "$ref": "#/definitions/Pet",
-                  "description": "宠物信息"
+                  "$ref": "#/definitions/Pet"
                 }
               },
               "required": [
@@ -401,8 +399,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Pet",
-                "description": "宠物信息"
+                "$ref": "#/definitions/Pet"
               }
             }
           },
