@@ -115,6 +115,7 @@
             }
           }
         },
+        "security": [],
         "produces": [
           "application/json"
         ]
@@ -165,6 +166,7 @@
             }
           }
         },
+        "security": [],
         "produces": [
           "application/json"
         ]
@@ -240,6 +242,7 @@
             }
           }
         },
+        "security": [],
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
@@ -324,6 +327,7 @@
             }
           }
         },
+        "security": [],
         "consumes": [
           "application/json"
         ],
@@ -419,6 +423,7 @@
             }
           }
         },
+        "security": [],
         "produces": [
           "application/json"
         ]
