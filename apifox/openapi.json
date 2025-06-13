@@ -126,7 +126,8 @@
             },
             "headers": {}
           }
-        }
+        },
+        "security": []
       },
       "delete": {
         "summary": "删除宠物信息",
@@ -179,7 +180,8 @@
             },
             "headers": {}
           }
-        }
+        },
+        "security": []
       }
     },
     "/pet": {
@@ -263,7 +265,8 @@
             },
             "headers": {}
           }
-        }
+        },
+        "security": []
       },
       "put": {
         "summary": "修改宠物信息",
@@ -352,7 +355,8 @@
             },
             "headers": {}
           }
-        }
+        },
+        "security": []
       }
     },
     "/pet/findByStatus": {
@@ -449,7 +453,8 @@
             },
             "headers": {}
           }
-        }
+        },
+        "security": []
       }
     },
     "/": {
@@ -472,7 +477,8 @@
             },
             "headers": {}
           }
-        }
+        },
+        "security": []
       }
     }
   },
