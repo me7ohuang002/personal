@@ -255,18 +255,20 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
-              "properties": {}
-            }
-          },
-          "201": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
             }
           },
           "400": {
@@ -277,28 +279,8 @@
               "properties": {}
             }
           },
-          "401": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string"
-                },
-                "Error_Message": {
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "Error_Message",
-                "message"
-              ]
-            }
-          },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {
@@ -312,72 +294,6 @@
               "required": [
                 "code",
                 "message"
-              ]
-            }
-          },
-          "500": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "x-400:参数不正确": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          },
-          "x-401:参数不正确（示例）": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          },
-          "x-200:组件2-全局默认on&有示例": {
-            "description": "",
-            "headers": {},
-            "examples": {
-              "application/json": {
-                "result": "全局响应组件，新接口默认on"
-              }
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "result"
               ]
             }
           }
@@ -613,7 +529,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "schema": {
               "title": "",
               "type": "object",
@@ -627,14 +542,6 @@
               ]
             }
           },
-          "201": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
           "400": {
             "description": "",
             "headers": {},
@@ -643,28 +550,8 @@
               "properties": {}
             }
           },
-          "401": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string"
-                },
-                "Error_Message": {
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "Error_Message",
-                "message"
-              ]
-            }
-          },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {
@@ -678,61 +565,6 @@
               "required": [
                 "code",
                 "message"
-              ]
-            }
-          },
-          "500": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "x-200:修改成功（示例）": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "x-401:参数不正确（示例）": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          },
-          "x-200:组件2-全局默认on&有示例": {
-            "description": "",
-            "headers": {},
-            "examples": {
-              "application/json": {
-                "result": "全局响应组件，新接口默认on"
-              }
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "result"
               ]
             }
           }
@@ -986,15 +818,41 @@
             "description": "全局说明~默认启用+必填"
           },
           {
+            "name": "b_off_gp",
+            "in": "formData",
+            "type": "string"
+          },
+          {
             "name": "body_same_1",
             "in": "formData",
             "type": "string",
             "description": "优先级"
           },
           {
+            "name": "b_gp_str",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "b_gp_num",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "b_gp_int",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
             "name": "test",
             "in": "formData",
             "type": "string"
+          },
+          {
+            "name": "b_gp_bool",
+            "in": "formData",
+            "type": "boolean",
+            "description": "勿改-测试全局参数类型：bool类型"
           },
           {
             "name": "b_on_gp_request_off",
@@ -1026,7 +884,6 @@
         "responses": {
           "405": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -1325,7 +1182,6 @@
         "responses": {
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -1333,7 +1189,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -1341,7 +1196,6 @@
           },
           "405": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -1638,7 +1492,6 @@
         "responses": {
           "405": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -2235,15 +2088,41 @@
             "description": "全局说明~默认启用+必填"
           },
           {
+            "name": "b_off_gp",
+            "in": "formData",
+            "type": "string"
+          },
+          {
             "name": "body_same_1",
             "in": "formData",
             "type": "string",
             "description": "优先级"
           },
           {
+            "name": "b_gp_str",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "b_gp_num",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "b_gp_int",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
             "name": "test",
             "in": "formData",
             "type": "string"
+          },
+          {
+            "name": "b_gp_bool",
+            "in": "formData",
+            "type": "boolean",
+            "description": "勿改-测试全局参数类型：bool类型"
           },
           {
             "name": "b_on_gp_request_off",
@@ -2280,14 +2159,6 @@
               "$ref": "#/definitions/ALLtypeEnglish"
             }
           },
-          "201": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
           "304": {
             "description": "",
             "headers": {},
@@ -2305,33 +2176,6 @@
               ]
             }
           },
-          "401": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string"
-                },
-                "Error_Message": {
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "Error_Message",
-                "message"
-              ]
-            }
-          },
-          "500": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
           "502": {
             "responseOAS": "responseOAS",
             "description": "Bad Gateway(502) 响应描述",
@@ -2346,327 +2190,6 @@
             "schema": {
               "description": "[1_开发中_3492316](api-3492316)<br>\n[1_开发中_3526118](api-3526118)[1_不存在](api-3525765)[文档跳转_338429](doc-338429)[文档不存在](doc-338480)",
               "$ref": "#/definitions/%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%96%87ALLtypeChinese"
-            }
-          },
-          "x-200:3-引用后解除关联": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "description": "[1_开发中_3492316](api-3492316)<br/>\n[1_开发中_3526118](api-3526118)<br/>\n[1_不存在](api-3525765)\n[文档跳转_338429](doc-338429)\n[文档不存在](doc-338480)",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "description": "定义了\"format\":\"int64\"",
-                  "title": "datatype-中文名",
-                  "format": "int64"
-                },
-                "category": {
-                  "$ref": "#/definitions/Category",
-                  "description": "引用了模型分类"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "定义了mock",
-                  "title": "名字",
-                  "example": "doggie"
-                },
-                "f_array": {
-                  "type": "array",
-                  "xml": {
-                    "name": "photoUrl",
-                    "wrapped": true
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "f_obj": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "id"
-                  ]
-                },
-                "f_string": {
-                  "type": "string",
-                  "enum": [
-                    "available",
-                    "pending",
-                    "sold"
-                  ]
-                },
-                "f_int": {
-                  "type": "integer"
-                },
-                "f_bool": {
-                  "type": "boolean"
-                },
-                "f_number": {
-                  "type": "number"
-                },
-                "f_null": {
-                  "type": "null"
-                },
-                "f_any": {
-                  "x-nullable": true
-                },
-                "f_allof": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "id": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "id2": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name"
-                      ]
-                    }
-                  ]
-                },
-                "f_oneof": {},
-                "f_anyof": {},
-                "f_required_nullable": {
-                  "type": "string",
-                  "description": "必填&允许空&datetime&有枚举值",
-                  "format": "Date-Time",
-                  "title": "字段别名",
-                  "enum": [
-                    "1970-01-10",
-                    "2022-01-10"
-                  ],
-                  "x-nullable": true
-                }
-              },
-              "required": [
-                "name",
-                "f_array",
-                "id",
-                "category",
-                "f_obj",
-                "f_string",
-                "f_int",
-                "f_bool",
-                "f_number",
-                "f_null",
-                "f_any",
-                "f_allof",
-                "f_oneof",
-                "f_anyof",
-                "f_required_nullable"
-              ]
-            }
-          },
-          "x-200:4-半引用": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "f_string": {
-                  "type": "integer",
-                  "description": "解除绑定并修改的字段"
-                },
-                "f_int": {
-                  "type": "integer"
-                },
-                "f_bool": {
-                  "type": "boolean"
-                },
-                "f_required_nullable": {
-                  "type": "string",
-                  "description": "必填&允许空&datetime&有枚举值",
-                  "format": "Date-Time",
-                  "title": "",
-                  "enum": [
-                    "1970-01-10",
-                    "2022-01-10"
-                  ],
-                  "x-nullable": true
-                },
-                "f_unrequired_notnull": {
-                  "type": "string",
-                  "description": "非必填&不允许空&datetime&有枚举值"
-                },
-                "multi": {
-                  "type": "object",
-                  "properties": {
-                    "f_array_array": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "f_array_obj": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "id"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "f_array_array",
-                    "f_array_obj"
-                  ],
-                  "description": "多层嵌套"
-                },
-                "f_bigint": {
-                  "type": "integer"
-                },
-                "AdvanceSetting": {
-                  "type": "object",
-                  "properties": {
-                    "int": {
-                      "type": "object",
-                      "properties": {
-                        "f_int_customValue": {
-                          "type": "integer",
-                          "description": "int设置常量1001",
-                          "const": 1001
-                        },
-                        "f_int_customValue0": {
-                          "type": "integer",
-                          "description": "int设置常量0",
-                          "const": 0
-                        }
-                      },
-                      "required": [
-                        "f_int_customValue"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "int"
-                  ]
-                },
-                "additional": {
-                  "type": "string",
-                  "description": "新加的字段"
-                }
-              },
-              "required": [
-                "additional",
-                "f_string",
-                "f_int",
-                "f_bool",
-                "f_required_nullable",
-                "multi",
-                "f_bigint"
-              ]
-            }
-          },
-          "x-200:markdown": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "title": "",
-              "type": "object",
-              "properties": {
-                "333": {
-                  "type": "string"
-                },
-                "test1": {
-                  "type": "string"
-                },
-                "abc2": {
-                  "type": "string",
-                  "description": "#### Rule Category\nFAA rules are categorized into the following:\n| Category | Description |\n| --------- | ----------- |\n| faa_107 | FAA Commercial UAS Flight. |\n| faa_44809 | FAA Recreational UAS Flight. |"
-                }
-              },
-              "required": [
-                "test1",
-                "abc2",
-                "333"
-              ]
-            }
-          },
-          "x-200:修改成功（示例）": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "x-401:参数不正确（示例）": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          },
-          "x-200:组件2-全局默认on&有示例": {
-            "description": "",
-            "headers": {},
-            "examples": {
-              "application/json": {
-                "result": "全局响应组件，新接口默认on"
-              }
-            },
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "result"
-              ]
             }
           }
         },
@@ -3243,15 +2766,41 @@
             "description": "全局说明~默认启用+必填"
           },
           {
+            "name": "b_off_gp",
+            "in": "formData",
+            "type": "string"
+          },
+          {
             "name": "body_same_1",
             "in": "formData",
             "type": "string",
             "description": "优先级"
           },
           {
+            "name": "b_gp_str",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "b_gp_num",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "b_gp_int",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
             "name": "test",
             "in": "formData",
             "type": "string"
+          },
+          {
+            "name": "b_gp_bool",
+            "in": "formData",
+            "type": "boolean",
+            "description": "勿改-测试全局参数类型：bool类型"
           },
           {
             "name": "b_on_gp_request_off",
@@ -3348,280 +2897,6 @@
             "schema": {
               "description": "[1_开发中_3492316](api-3492316)<br>\n[1_开发中_3526118](api-3526118)[1_不存在](api-3525765)[文档跳转_338429](doc-338429)[文档不存在](doc-338480)",
               "$ref": "#/definitions/%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%96%87ALLtypeChinese"
-            }
-          },
-          "x-200:3-引用后解除关联": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "description": "[1_开发中_3492316](api-3492316)<br/>\n[1_开发中_3526118](api-3526118)<br/>\n[1_不存在](api-3525765)\n[文档跳转_338429](doc-338429)\n[文档不存在](doc-338480)",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "description": "定义了\"format\":\"int64\"",
-                  "title": "datatype-中文名",
-                  "format": "int64"
-                },
-                "category": {
-                  "$ref": "#/definitions/Category",
-                  "description": "引用了模型分类"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "定义了mock",
-                  "title": "名字",
-                  "example": "doggie"
-                },
-                "f_array": {
-                  "type": "array",
-                  "xml": {
-                    "name": "photoUrl",
-                    "wrapped": true
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "f_obj": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "id"
-                  ]
-                },
-                "f_string": {
-                  "type": "string",
-                  "enum": [
-                    "available",
-                    "pending",
-                    "sold"
-                  ]
-                },
-                "f_int": {
-                  "type": "integer"
-                },
-                "f_bool": {
-                  "type": "boolean"
-                },
-                "f_number": {
-                  "type": "number"
-                },
-                "f_null": {
-                  "type": "null"
-                },
-                "f_any": {
-                  "x-nullable": true
-                },
-                "f_allof": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "id": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "id2": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name"
-                      ]
-                    }
-                  ]
-                },
-                "f_oneof": {},
-                "f_anyof": {},
-                "f_required_nullable": {
-                  "type": "string",
-                  "description": "必填&允许空&datetime&有枚举值",
-                  "format": "Date-Time",
-                  "title": "字段别名",
-                  "enum": [
-                    "1970-01-10",
-                    "2022-01-10"
-                  ],
-                  "x-nullable": true
-                }
-              },
-              "required": [
-                "name",
-                "f_array",
-                "id",
-                "category",
-                "f_obj",
-                "f_string",
-                "f_int",
-                "f_bool",
-                "f_number",
-                "f_null",
-                "f_any",
-                "f_allof",
-                "f_oneof",
-                "f_anyof",
-                "f_required_nullable"
-              ]
-            }
-          },
-          "x-200:4-半引用": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "f_string": {
-                  "type": "integer",
-                  "description": "解除绑定并修改的字段"
-                },
-                "f_int": {
-                  "type": "integer"
-                },
-                "f_bool": {
-                  "type": "boolean"
-                },
-                "f_required_nullable": {
-                  "type": "string",
-                  "description": "必填&允许空&datetime&有枚举值",
-                  "format": "Date-Time",
-                  "title": "",
-                  "enum": [
-                    "1970-01-10",
-                    "2022-01-10"
-                  ],
-                  "x-nullable": true
-                },
-                "f_unrequired_notnull": {
-                  "type": "string",
-                  "description": "非必填&不允许空&datetime&有枚举值"
-                },
-                "multi": {
-                  "type": "object",
-                  "properties": {
-                    "f_array_array": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "f_array_obj": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "id"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "f_array_array",
-                    "f_array_obj"
-                  ],
-                  "description": "多层嵌套"
-                },
-                "f_bigint": {
-                  "type": "integer"
-                },
-                "AdvanceSetting": {
-                  "type": "object",
-                  "properties": {
-                    "int": {
-                      "type": "object",
-                      "properties": {
-                        "f_int_customValue": {
-                          "type": "integer",
-                          "description": "int设置常量1001",
-                          "const": 1001
-                        },
-                        "f_int_customValue0": {
-                          "type": "integer",
-                          "description": "int设置常量0",
-                          "const": 0
-                        }
-                      },
-                      "required": [
-                        "f_int_customValue"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "int"
-                  ]
-                },
-                "additional": {
-                  "type": "string",
-                  "description": "新加的字段"
-                }
-              },
-              "required": [
-                "additional",
-                "f_string",
-                "f_int",
-                "f_bool",
-                "f_required_nullable",
-                "multi",
-                "f_bigint"
-              ]
-            }
-          },
-          "x-200:markdown": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "title": "",
-              "type": "object",
-              "properties": {
-                "333": {
-                  "type": "string"
-                },
-                "test1": {
-                  "type": "string"
-                },
-                "abc2": {
-                  "type": "string",
-                  "description": "#### Rule Category\nFAA rules are categorized into the following:\n| Category | Description |\n| --------- | ----------- |\n| faa_107 | FAA Commercial UAS Flight. |\n| faa_44809 | FAA Recreational UAS Flight. |"
-                }
-              },
-              "required": [
-                "test1",
-                "abc2",
-                "333"
-              ]
             }
           }
         },
@@ -3992,53 +3267,6 @@
               },
               "title": "PublishPhoneVo",
               "$$ref": "#/definitions/PublishPhoneVo"
-            }
-          },
-          "201": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "401": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "integer"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          },
-          "500": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          "x-200:成功": {
-            "description": "",
-            "headers": {}
-          },
-          "x-200:修改成功（示例）": {
-            "description": "",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {}
             }
           }
         },
@@ -6529,15 +5757,41 @@
             "description": "全局说明~默认启用+必填"
           },
           {
+            "name": "b_off_gp",
+            "in": "formData",
+            "type": "string"
+          },
+          {
             "name": "body_same_1",
             "in": "formData",
             "type": "string",
             "description": "优先级"
           },
           {
+            "name": "b_gp_str",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "b_gp_num",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "b_gp_int",
+            "in": "formData",
+            "type": "integer"
+          },
+          {
             "name": "test",
             "in": "formData",
             "type": "string"
+          },
+          {
+            "name": "b_gp_bool",
+            "in": "formData",
+            "type": "boolean",
+            "description": "勿改-测试全局参数类型：bool类型"
           },
           {
             "name": "b_on_gp_request_off",
@@ -6569,7 +5823,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": {
                 "code": "<integer>",
@@ -6832,7 +6085,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": [
                 {
@@ -6950,7 +6202,6 @@
           },
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -7182,7 +6433,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": {
                 "id": "<long>",
@@ -7227,7 +6477,6 @@
           },
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -7235,7 +6484,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -7465,7 +6713,6 @@
         "responses": {
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -7473,7 +6720,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -7711,7 +6957,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": {
                 "id": "<long>",
@@ -7756,7 +7001,6 @@
           },
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -7991,7 +7235,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": "<object>"
             },
@@ -8225,7 +7468,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": {
                 "id": "<long>",
@@ -8280,7 +7522,6 @@
           },
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -8288,7 +7529,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -8533,7 +7773,6 @@
         "responses": {
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -8541,7 +7780,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -8773,7 +8011,6 @@
         "responses": {
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -8781,7 +8018,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -9019,7 +8255,6 @@
         "responses": {
           "500": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -9260,7 +8495,6 @@
         "responses": {
           "500": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -9501,7 +8735,6 @@
         "responses": {
           "500": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -9743,7 +8976,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": "<string>"
             },
@@ -9754,7 +8986,6 @@
           },
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -9978,7 +9209,6 @@
         "responses": {
           "500": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -10216,7 +9446,6 @@
         "responses": {
           "200": {
             "description": "",
-            "headers": {},
             "examples": {
               "application/json": [
                 {
@@ -10334,7 +9563,6 @@
           },
           "400": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {}
@@ -10342,7 +9570,6 @@
           },
           "404": {
             "description": "",
-            "headers": {},
             "schema": {
               "type": "object",
               "properties": {
@@ -10976,5 +10203,647 @@
       "in": "header"
     }
   },
-  "x-components": {}
+  "x-components": {
+    "responses": {
+      "记录不存在": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        }
+      },
+      "参数不正确": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        }
+      },
+      "参数不正确-全局": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "Error_Message": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "Error_Message",
+                "message"
+              ]
+            }
+          }
+        }
+      },
+      "新建成功（示例）": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      },
+      "修改成功（示例）": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      },
+      "服务出错": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      },
+      "参数不正确（示例）": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        }
+      },
+      "组件1-所有字段类型": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "f_array",
+                "f_obj",
+                "f_string",
+                "f_int",
+                "f_bool",
+                "f_number",
+                "f_null",
+                "f_any",
+                "f_allof",
+                "f_oneof",
+                "f_anyof",
+                "f_required_nullable",
+                "multi",
+                "f_bigint",
+                "f_datatype_halfRef",
+                "f_datatype_allRef"
+              ],
+              "type": "object",
+              "properties": {
+                "f_array": {
+                  "type": "array",
+                  "xml": {
+                    "name": "photoUrl",
+                    "wrapped": true
+                  },
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "tttt",
+                      "kkk"
+                    ],
+                    "description": "设置了枚举值"
+                  }
+                },
+                "f_obj": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "f_obj_array": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "f_obj_obj": {
+                      "type": "object",
+                      "properties": {
+                        "xx_id": {
+                          "type": "string"
+                        },
+                        "xx_name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "xx_id",
+                        "xx_name"
+                      ],
+                      "description": "obj多层嵌套"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id",
+                    "f_obj_array",
+                    "f_obj_obj"
+                  ],
+                  "description": "允许null",
+                  "nullable": true
+                },
+                "f_string": {
+                  "type": "string",
+                  "enum": [
+                    "available",
+                    "pending",
+                    "sold"
+                  ],
+                  "description": "设置了枚举值"
+                },
+                "f_int": {
+                  "type": "integer"
+                },
+                "f_bool": {
+                  "type": "boolean"
+                },
+                "f_number": {
+                  "type": "number"
+                },
+                "f_null": {
+                  "type": "null"
+                },
+                "f_any": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "array"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "f_allof": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id2": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  ]
+                },
+                "f_oneof": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name0": {
+                          "type": "string"
+                        },
+                        "id0": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name0"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name1": {
+                          "type": "string"
+                        },
+                        "id1": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name1"
+                      ]
+                    }
+                  ]
+                },
+                "f_anyof": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id2": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  ]
+                },
+                "f_required_nullable": {
+                  "type": "string",
+                  "description": "必填&允许空&datetime&有枚举值",
+                  "format": "Date-Time",
+                  "title": "",
+                  "enum": [
+                    "1970-01-10",
+                    "2022-01-10"
+                  ],
+                  "nullable": true
+                },
+                "multi": {
+                  "type": "object",
+                  "properties": {
+                    "f_array_array": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "f_array_obj": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "id"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "f_array_array",
+                    "f_array_obj"
+                  ],
+                  "description": "多层嵌套"
+                },
+                "f_bigint": {
+                  "type": "integer"
+                },
+                "f_datatype_halfRef": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "模型引用_半引用"
+                },
+                "f_datatype_allRef": {
+                  "description": "模型全引用",
+                  "$ref": "#/definitions/TypeNotAllowNull"
+                },
+                "f_unrequired_notnull": {
+                  "type": "string",
+                  "description": "非必填&不允许空&datetime&有枚举值"
+                },
+                "f_obj_unnecessary": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              },
+              "title": "ALLtypeEnglish勿改"
+            },
+            "examples": {
+              "组件1-示例1": {
+                "summary": "组件1-示例1",
+                "value": {
+                  "f_array": [
+                    "kkk",
+                    "kkk",
+                    "kkk"
+                  ],
+                  "f_obj": null,
+                  "f_string": "available",
+                  "f_int": 10,
+                  "f_bool": true,
+                  "f_number": 2,
+                  "f_null": null,
+                  "f_any": [],
+                  "f_allof": {
+                    "name": "平国包权",
+                    "id2": "34",
+                    "id": "94"
+                  },
+                  "f_oneof": {
+                    "name1": "响低真北状提",
+                    "id1": "73"
+                  },
+                  "f_anyof": {
+                    "name": "用角会资题非厂",
+                    "id2": "100"
+                  },
+                  "f_required_nullable": "2022-01-10",
+                  "multi": {
+                    "f_array_array": [
+                      [
+                        "cupidatat sint in laboris ea"
+                      ],
+                      [
+                        "proident nisi mollit aliquip do",
+                        "commodo est",
+                        "dolor",
+                        "ullamco"
+                      ],
+                      [
+                        "sint ex officia ut proident",
+                        "reprehenderit sint",
+                        "voluptate",
+                        "ut magna aliquip",
+                        "sit do voluptate id"
+                      ],
+                      [
+                        "minim ut",
+                        "irure exercitation eiusmod esse quis"
+                      ]
+                    ],
+                    "f_array_obj": [
+                      {
+                        "name": "会称即自",
+                        "id": "39"
+                      }
+                    ]
+                  },
+                  "f_bigint": 1503289371362545700,
+                  "f_datatype_halfRef": {
+                    "SmartMock": {
+                      "match_phone": "13291527501",
+                      "dismatch_phone": true
+                    }
+                  },
+                  "f_datatype_allRef": {
+                    "name": "再内中",
+                    "id": 50
+                  },
+                  "f_obj_unnecessary": {
+                    "id": "77",
+                    "name": "者确界"
+                  },
+                  "f_unrequired_notnull": "qui cillum nostrud Excepteur tempor"
+                }
+              },
+              "组件1-示例2": {
+                "summary": "组件1-示例2",
+                "value": {
+                  "f_array": [
+                    "tttt",
+                    "kkk",
+                    "kkk",
+                    "tttt"
+                  ],
+                  "f_obj": null,
+                  "f_string": "sold",
+                  "f_int": 70,
+                  "f_bool": false,
+                  "f_number": 41,
+                  "f_null": null,
+                  "f_any": {},
+                  "f_allof": {
+                    "name": "存信本",
+                    "id": "68",
+                    "id2": "85"
+                  },
+                  "f_oneof": {
+                    "name0": "种要少用应需",
+                    "id0": "44"
+                  },
+                  "f_anyof": {
+                    "name": "而意系论真",
+                    "id2": "91"
+                  },
+                  "f_required_nullable": "2022-01-10",
+                  "multi": {
+                    "f_array_array": [
+                      [
+                        "nostrud cillum sit"
+                      ],
+                      [
+                        "in laboris nulla",
+                        "labore aliqua",
+                        "eu aute",
+                        "sunt aute elit irure do",
+                        "ad dolore eiusmod sint id"
+                      ],
+                      [
+                        "nulla mollit aute dolor"
+                      ],
+                      [
+                        "officia laboris fugiat",
+                        "exercitation",
+                        "exercitation velit consequat",
+                        "sit"
+                      ],
+                      [
+                        "aliquip Duis dolor et dolore",
+                        "anim sed"
+                      ]
+                    ],
+                    "f_array_obj": [
+                      {
+                        "name": "后器将将它会些",
+                        "id": "20"
+                      }
+                    ]
+                  },
+                  "f_bigint": 1503289371362545700,
+                  "f_datatype_halfRef": {
+                    "SmartMock": {
+                      "match_phone": "18645437726",
+                      "dismatch_phone": false
+                    }
+                  },
+                  "f_datatype_allRef": {
+                    "name": "们干派",
+                    "id": 65
+                  },
+                  "f_unrequired_notnull": "minim est elit cupidatat Lorem",
+                  "f_obj_unnecessary": {
+                    "id": "25",
+                    "name": "象流将"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "组件2-全局默认on&有示例": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "result"
+              ]
+            },
+            "examples": {
+              "Success": {
+                "summary": "Success",
+                "value": {
+                  "result": "全局响应组件，新接口默认on"
+                }
+              }
+            }
+          }
+        }
+      },
+      "组件3-新建默认off&无示例": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "off": {
+                  "type": "boolean"
+                },
+                "errorCode": {
+                  "type": "string"
+                },
+                "errorMessage": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "off",
+                "errorCode",
+                "errorMessage"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
 }
